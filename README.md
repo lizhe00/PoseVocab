@@ -3,7 +3,7 @@
 
 # <b>PoseVocab</b>: Learning Joint-structured Pose Embeddings for Human Avatar Modeling
 
-SIGGRAPH 2023
+<h2>SIGGRAPH 2023</h2>
 
 [Zhe Li](https://lizhe00.github.io/), [Zerong Zheng](https://zhengzerong.github.io/), Yuxiao Liu, Boyao Zhou, [Yebin Liu](https://www.liuyebin.com)
 
@@ -13,9 +13,8 @@ Tsinghua Univserity
 
 </div>
 
-<video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-    <source src="assets/teaser.mp4" type="video/mp4">
-</video>
-<!-- <video src="./assets/teaser.mp4" controls></video> -->
+<p align="center">
+    <img src="assets/teaser.gif">
+</p>
 
 Coming soon!
