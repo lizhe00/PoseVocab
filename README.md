@@ -9,12 +9,13 @@ SIGGRAPH 2023
 
 Tsinghua Univserity
 
-### [Projectpage](https://lizhe00.github.io/projects/posevocab/) · [Paper]() · [Video](https://youtu.be/L-kg74A6yNc)
+### [Projectpage](https://lizhe00.github.io/projects/posevocab/) · [Paper](https://arxiv.org/pdf/2304.13006.pdf) · [Video](https://youtu.be/L-kg74A6yNc)
 
 </div>
 
-<p align="center">
-    <img src="./assets/teaser.gif">
-</p>
+<video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+    <source src="assets/teaser.mp4" type="video/mp4">
+</video>
+<!-- <video src="./assets/teaser.mp4" controls></video> -->
 
 Coming soon!
