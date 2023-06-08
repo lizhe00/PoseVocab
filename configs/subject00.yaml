@@ -1,0 +1,112 @@
+mode: train
+#mode: test
+#mode: render_depth_sequences
+
+train:
+  data:
+    subject_name: subject00
+    data_dir: 'G:/MultiviewRGB/subject00'
+    frame_range: [0, 2000, 1]
+    used_cam_ids: [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+  net_ckpt_dir: './results/subject00'
+  prev_ckpt: null
+  save_init_ckpt: false
+  start_epoch: 0
+  end_epoch: 100
+  ckpt_interval:
+    epoch: 1
+    batch: 10000
+  eval_interval: 10000
+
+  # nerf-related
+  depth_guided_sampling:
+    flag: true
+    near_sur_dist: 0.05
+    N_ray_samples: 32
+  compute_grad: true
+  ray_sampling: # ray sampling method on training images
+    epoch_ranges: [[0, 40], [40, 9999]]
+    schedules: ['random', 'patch']
+    type: null
+    patch:
+      patch_num: 1
+      patch_size: 64
+      inside_radio: 1.0
+    random:
+      sample_num: 1024
+      inside_radio: 0.8
+  lr:
+    network:
+      type: 'Step'
+      initial: 0.0005
+      interval: 40000
+      factor: 0.9
+      min: 0.00008
+  loss_weight:
+    color: 1.0
+    lpips: 1.0
+    mask: 1.0
+    eikonal: 0.1
+    tv: 10.0
+  batch_size: 1
+  num_workers: 4
+test:
+  data:
+    data_dir: 'G:/MultiviewRGB/subject00'
+    frame_range: [2000, 2500, 1]
+    frame_win: 2
+    fix_head_pose: true
+  pose_data:
+    data_path: './test_pose/thuman4/pose_01.npz'
+    frame_range: [0, 1500, 1]
+    frame_win: 2
+
+  # render view setting
+  view_setting: 'free'  # 'free' or 'camera'
+  render_view_idx: 18
+  global_orient: true
+  img_scale: 1.0
+
+  vol_res: [128, 128, 128]
+  depth_guided_sampling:
+    flag: true
+    near_sur_dist: 0.02
+    N_ray_samples: 16
+  infer_rgb: true
+  save_mesh: false
+  render_skeleton: true
+  prev_ckpt: './pretrained_models/subject00'
+
+model:
+  local_pose: true
+  multires: 6
+
+  use_viewdir: false
+  multires_viewdir: 3
+
+  multiscale_line_sizes:
+    - [8, 8, 2]
+    - [32, 32, 8]
+    - [128, 128, 32]
+    - [256, 256, 64]
+  feat_dims:
+    - 4
+    - 4
+    - 4
+    - 4
+  point_nums:
+    - 256
+    - 256
+    - 256
+    - 256
+  knns:
+    - 10
+    - 10
+    - 10
+    - 10
+  pose_formats:
+    - 'quaternion'
+    - 'quaternion'
+    - 'quaternion'
+    - 'quaternion'
+  concat_pose_vec: true
