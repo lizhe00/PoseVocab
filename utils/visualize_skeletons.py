@@ -9,8 +9,8 @@ from utils.renderer import Renderer, gl_perspective_projection_matrix
 
 
 def load_ball_cylinder():
-    ball = trimesh.load(config.PROJ_DIR + '/smpl_files/ball.obj', process = False)
-    cylinder = trimesh.load(config.PROJ_DIR + '/smpl_files/cylinder.obj', process = False)
+    ball = trimesh.load(config.PROJ_DIR + '/ball.obj', process = False)
+    cylinder = trimesh.load(config.PROJ_DIR + '/cylinder.obj', process = False)
     return ball, cylinder
 
 ball, cylinder = load_ball_cylinder()
