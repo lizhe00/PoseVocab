@@ -56,7 +56,7 @@ python main.py -c configs/subject00.yaml -m train
 python main.py -c configs/subject00.yaml -m render_depth_sequences
 ```
 
-- *Stage 3: continue training.* Set ```start_epoch``` in [configs/subject00.yaml#L14](configs/subject00.yaml#L14) to 11, and ```prev_ckpt``` in [configs/subject00.yaml#L12](configs/subject00.yaml#L12) to ```./results/subject00/epoch_latest```.
+- *Stage 3: continue training.* Set ```start_epoch``` in [configs/subject00.yaml#L14](configs/subject00.yaml#L14) to 11, ```end_epoch``` in [configs/subject00.yaml#L15](configs/subject00.yaml#L15) to 100, and ```prev_ckpt``` in [configs/subject00.yaml#L12](configs/subject00.yaml#L12) to ```./results/subject00/epoch_latest```.
 ```
 python main.py -c configs/subject00.yaml -m train
 ```
