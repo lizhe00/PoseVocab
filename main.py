@@ -40,7 +40,7 @@ class AvatarTrainer(BaseTrainer):
         """ random sampling """
         if 'nerf_random' in items:
             items.update(items['nerf_random'])
-            render_output = self.network.render_only_on_depth(items)
+            render_output = self.network.render(items, depth_guided_sampling = self.opt['train']['depth_guided_sampling'])
 
             # color loss
             if 'rgb_map' in render_output:
